@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧颐养管理端</title>
+    <script src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
+    <style>
+        .office {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .yuanqu_jiaodian>div {
+            position: absolute;
+            background-position: top left;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        
+        .office img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .yuanqu_jiaodian {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        
+        .yuanqu_jiaodian .chuangxin {
+            width: 34.6%;
+            height: 62%;
+            top: 58.8%;
+            left: 22%;
+            background-image: url(sucai/创新创业.png);
+        }
+        
+        .chuangxin:hover {
+            transition: 0.7s;
+            background-image: url(hover1/创新创业基地\(1\).png);
+        }
+        
+        .yuanqu_jiaodian .shuiwu {
+            width: 11.6%;
+            height: 41%;
+            bottom: 36.8%;
+            left: 7.9%;
+            background-image: url(sucai/税务大厦.png);
+        }
+        
+        .shuiwu:hover {
+            transition: 0.7s;
+            background-image: url(hover1/税务大厦.png);
+        }
+        
+        .yuanqu_jiaodian .qiyefuwu {
+            width: 21%;
+            height: 50.5%;
+            top: 33.9%;
+            left: 22.6%;
+            background-image: url(sucai/企业服务中心.png);
+        }
+        
+        .qiyefuwu:hover {
+            transition: 0.7s;
+            background-image: url(hover1/企业服务中心.png);
+        }
+        
+        .yuanqu_jiaodian .renshe {
+            width: 9.6%;
+            height: 30.5%;
+            top: 15.9%;
+            right: 36.9%;
+            background-image: url(sucai/人社局.png);
+        }
+        
+        .renshe:hover {
+            transition: 0.7s;
+            background-image: url(hover1/人社局.png);
+        }
+        
+        .yuanqu_jiaodian .tongji {
+            width: 17.5%;
+            height: 23.6%;
+            top: 31%;
+            left: 56.09%;
+            background-image: url(sucai/统计局.png);
+        }
+        
+        .tongji:hover {
+            transition: 0.7s;
+            background-image: url(hover1/统计局.png);
+        }
+        
+        .yuanqu_jiaodian .kejicheng {
+            width: 27.1%;
+            height: 44.6%;
+            bottom: 8%;
+            right: -2.3%;
+            background-image: url(sucai/科技城大数据中心.png);
+        }
+        
+        .kejicheng:hover {
+            transition: 0.7s;
+            background-image: url(hover1/科技城大数据中心.png);
+        }
+        
+        .yuanqu_jiaodian .gongying {
+            width: 12.6%;
+            height: 27.2%;
+            top: 20.1%;
+            right: 10.4%;
+            background-image: url(sucai/供应商.png);
+        }
+        
+        .gongying:hover {
+            transition: 0.6s;
+            background-image: url(hover1/供应商.png);
+        }
+        
+        .yuanqu_jiaodian .wuliu {
+            width: 20.4%;
+            height: 39.2%;
+            bottom: -5%;
+            left: -0.1%;
+            background-image: url(sucai/现代物流产业园.png);
+        }
+        
+        .wuliu:hover {
+            transition: 0.6s;
+            background-image: url(hover1/现代物流中心.png);
+        }
+        
+        .yuanqu_jiaodian .zhao {
+            width: 19.1%;
+            height: 37%;
+            bottom: 16.5%;
+            right: 0%;
+            background-image: url();
+        }
+        
+        .zhao:hover {
+            transition: 0.6s;
+            background-image: url();
+        }
+        
+        .yuanqu_jiaodian .jinrong {
+            width: 10%;
+            height: 26.6%;
+            top: 14%;
+            right: 48%;
+            background-image: url(sucai/金融大厦.png);
+        }
+        
+        .jinrong:hover {
+            transition: 0.6s;
+            background-image: url(hover1/金融大厦.png);
+        }
+        
+        .tuichu {
+            right: 0;
+            top: 0;
+            position: fixed;
+            width: 8vw;
+            height: 8vw;
+            background: url(img/tuichu.png) no-repeat;
+            background-size: 100% auto;
+        }
+        
+        .gaoshi {
+            left: 10vw;
+            width: 17vw;
+            top: 0;
+            height: 8vw;
+            background: url(img/gpai2-6ace94248b658a13b62f75d391fb7f03.png) no-repeat;
+            background-size: 100% auto;
+            position: fixed;
+            font-size: 1.2vw;
+        }
+        
+        .name {
+            width: 100%;
+            height: auto;
+            text-align: center;
+            margin-top: 0%;
+            padding: 2.0vw 39.8% 0.40%;
+            display: flex;
+        }
+        /*弹窗内容显示*/
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .frame {
+            width: 140.15vmin;
+            height: 82.65vmin;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: url(sucai/xiangmujieshao.png) no-repeat top left;
+            background-size: 100% 100%;
+        }
+        
+        .frame img {
+            position: absolute;
+            top: 3vmin;
+            left: 133vmin;
+            width: 8vmin;
+            cursor: pointer;
+        }
+        
+        .frame img:hover {
+            width: 10vmin;
+        }
+        
+        .backBlock {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .6);
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        
+        .title {
+            font-size: 8vmin;
+            letter-spacing: 1.0vmin;
+            text-align: center;
+            color: #fff;
+            text-shadow: rgb(0 159 188) 0 0 1vmin, rgb(0 100 120 / 50%) 1px 1px 1px, rgb(0 100 120 / 50%) -1px -1px 1px;
+            margin-bottom: 2.5vmin;
+        }
+        
+        .case-c {
+            padding: 0 1vmin 0 1vmin;
+            line-height: 2;
+            text-align: justify;
+        }
+        
+        .F-con {
+            overflow-y: scroll;
+            height: calc(100% - 16.2vmin);
+            margin: 0 4.45vmin 0 6.5vmin;
+            padding-right: 0.7vmin;
+            position: relative;
+        }
+        
+        .case-cenr {
+            text-align: center;
+        }
+        
+        .frame h3 {
+            margin: 1.5vmin;
+        }
+        
+        .frame p {
+            margin: 1vmin 0;
+            text-indent: 4vmin;
+        }
+        
+         ::-webkit-scrollbar {
+            width: 1.35vmin;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="office"><img src="img/shouye1.jpg" alt=""></div>
+    <div class="yuanqu_jiaodian">
+        <div class="chuangxin" id="chuangxin"></div>
+        <div class="shuiwu" id="shuiwu"></div>
+        <div class="qiyefuwu" id="qiyefuwu"></div>
+        <div class="renshe" id="renshe"></div>
+        <div class="tongji" id="tongji"></div>
+        <div class="kejicheng" id="kejicheng"></div>
+        <div class="gongying" id="gongying"></div>
+        <div class="wuliu" id="wuliu"></div>
+        <div class="jinrong" id="jinrong"></div>
+    </div>
+    <div class="tuichu">
+        <input class="tuichu" type="image" src="img/tuichu.png" onclick="window.location.href='http://49.232.48.157:8083/login_manage.html'" width="74.18px" height="74.18px">
+    </div>
+    <div class="gaoshi">
+        <div class="name">
+        </div>
+    </div>
+    <div class="hyw">
+
+    </div>
+    <!-- 现代物流产业园弹窗-->
+    <div id="tanc5" class="backBlock" style="display: none">
+        <div class="frame">
+            <h1 class="title">智慧居家颐养</h1>
+            <img id="chahao5" src="sucai/chahao.png" />
+            <div class="F-con">
+                <div class="case-c">
+                    <h4> 什么是智慧居家颐养？</h4>
+                    <p>智慧居家颐养是面向居家老人、社区及养老机构的即时信息管理系统，并在此基础上提供实时、快捷、高效、低成本的互联化、智能化的养老服务。智慧居家颐养服务于居家养老的老人，打造一个全方位、立体化的居家养老服务体系，是社区居家养老的贴心人，也是老人居家养老的安全卫士。</p>
+                    <p>智慧居家颐养是面向居家养老的信息管理系统，为老人提供与医护人员的沟通互动，老人通过登录进入系统，将检测好的个人各方面指标记录到系统中，系统将反馈给相应的医生，医生通过老人提供的信息数据与健康指标比对，给出对应的建议，然后反馈给老人，实现“居家问诊”，足不出户便可“寻医问病”，为老人或其家属提供实时便捷化的服务。</p>
+                    <p></p>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    //税务弹窗（操作说明）
+    <div id="tanc4" class="backBlock" style="display: none">
+        <div class="frame">
+            <h1 class="title">智慧居家颐养</h1>
+            <img id="chahao4" src="sucai/chahao.png" />
+            <div class="F-con">
+                <div class="case-c">
+                    <h4> 操作说明</h4>
+                    <p>1.系统介绍：在这个页面，管理员可以了解整个网站系统的功能架构及各模块之间的交互方式。这里需要注重让管理员熟悉网站系统的设计原理，让其掌握对整个系统的基本认识。</p>
+                    <p>2.定时性任务：在这个页面，管理员可以设置一些定时任务，包括但不限于备份数据库、发送提醒邮件等。这里需要详细说明各个任务的目的和执行方式，以及如何查看任务执行情况。</p>
+                    <p>3.审核医生账号：这个页面可以展示当前需要审核的医生账号列表，管理员需要说明如何审核医生账号，包括但不限于如何查看医生资料和工作经验、如何判断医生是否符合资格等。</p>
+                    <p>4.老人对医生的评分表：在这个页面，管理员可以查看老人对医生的评分信息。管理员需要说明如何查看评分信息、如何对不合格的医生进行处理等。</p>
+                    <p>5.查看医生和老人的信息：在这个页面，管理员可以查看医生和老人的个人信息，包括但不限于基本信息、学历背景、工作经验等。管理员需要说明如何查看信息、如何对信息不实的医生或老人进行处理。</p>
+                    <p>6.聊天室：在这个页面，管理员可以查看医生和老人之间的聊天记录，并可以对聊天内容进行相应的处理。管理员需要说明如何查看聊天记录、如何处理违规聊天等。</p>
+                    <p></p>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="tanc3" class="backBlock" style="display: none">
+        <div class="frame">
+            <h1 class="title">智慧居家颐养</h1>
+            <img id="chahao3" src="sucai/chahao.png" />
+            <div class="F-con">
+                <div class="case-c">
+                    <h4> 定时性任务</h4>
+                    <p>当您改变定时任务时，可能会对其他用户造成影响，因此请谨慎操作。</p>
+                    <p>我们当前采用自建的 Xxl_job 平台进行任务调度管理，您可以通过以下网址登录，并使用与当前账号相同的账号信息。</p>
+                    <p>http://49.232.48.157:8090/xxl-job-admin/</p>
+                    <p></p>
+                    <p>为避免对其他用户造成干扰，请在管理定时任务时勤加注意。</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    //$(".wuliu").on("click", function() {
+
+    //})
+
+    //现代物流产业园点击事件
+    document.getElementById("wuliu").onclick = function() {
+            document.getElementById("tanc5").style.display = ""; // 不占位
+        }
+        //叉号
+    document.getElementById("chahao5").onclick = function() {
+        document.getElementById("tanc5").style.display = "none"; // 不占位
+    }
+    document.getElementById("chahao4").onclick = function() {
+        document.getElementById("tanc4").style.display = "none"; // 不占位
+    }
+    document.getElementById("chahao3").onclick = function() {
+        document.getElementById("tanc3").style.display = "none"; // 不占位
+    }
+    //点击事件
+    document.getElementById("qiyefuwu").onclick = function() {
+        window.location.href="tables_doindex"
+    }
+    //点击事件
+    document.getElementById("chuangxin").onclick = function() {
+        window.location.href="tables_ocindex"
+    }
+    //点击事件
+    document.getElementById("shuiwu").onclick = function() {
+        document.getElementById("tanc4").style.display = ""; // 不占位
+    }
+    //点击事件
+    document.getElementById("renshe").onclick = function() {
+        document.getElementById("tanc3").style.display = ""; // 不占位
+    }
+    //点击事件
+    document.getElementById("tongji").onclick = function() {
+        window.location.href="forms_admin.html"
+    }
+    //点击事件
+    document.getElementById("gongying").onclick = function() {
+        window.location.href="tables_Po"
+    }
+    //点击事件
+    document.getElementById("kejicheng").onclick = function() {
+        window.location.href="tables_oc"
+    }
+</script>

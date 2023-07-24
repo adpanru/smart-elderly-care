@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Uizer - Bootstrap Coming Soon Template</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">        
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+        <link rel="stylesheet" th:href="@{/elegant-font/code/style.css}">
+        <link rel="stylesheet" th:href="@{/css/animate.css}">
+		<link rel="stylesheet" th:href="@{/css/form-elements.css}">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" th:href="@{/css/media-queries.css}">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        
+        <!--[if gte IE 9]>
+        	<style type="text/css">
+        		.gradient {
+        			filter: none;
+        		}
+        	</style>
+        <![endif]-->
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" th:href="@{/ico/favicon.png}">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" th:href="@{/ico/apple-touch-icon-144-precomposed.png}">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" th:href="@{/ico/apple-touch-icon-114-precomposed.png}">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" th:href="@{/ico/apple-touch-icon-72-precomposed.png}">
+        <link rel="apple-touch-icon-precomposed" th:href="@{/ico/apple-touch-icon-57-precomposed.png}">
+
+    </head>
+
+    <body>
+    
+        <!-- Loader -->
+    	<div class="loader">
+    		<div class="loader-img"></div>
+    	</div>
+				
+        <!-- Top content -->
+        <div class="top-content">
+        	
+        	<div class="top-content-gradient gradient"></div>
+        	
+        	<!-- Top menu -->
+			<nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="../index.html">返回 - Bootstrap Coming Soon Template</a>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="top-navbar-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<span class="li-text">
+									Put some text or
+								</span> 
+								<a href="#"><strong>links</strong></a> 
+								<span class="li-text">
+									here, or some icons: 
+								</span> 
+								<span class="li-social">
+									<a href="#"><span class="social_facebook"></span></a> 
+									<a href="#"><span class="social_twitter"></span></a> 
+									<a href="#"><span class="social_googleplus"></span></a> 
+									<a href="#"><span class="social_skype"></span></a> 
+								</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+        	
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 text">
+                            <h1 class="wow fadeInLeftBig" data-wow-duration="1.5s" data-wow-delay="1s">
+                            	团队正在 <strong>研发中</strong>
+                            </h1>
+                            <div class="description wow fadeInLeftBig" data-wow-duration="1.5s" data-wow-delay="2s">
+                            	<p>
+									我们正在非常努力地开发我们网站的新版本。它将带来很多新功能。
+	                            	有任何疑问请留下您的邮箱，我们将会第一时间联系您。
+                            	</p>
+                            </div>
+                            <div class="timer wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="2.5s">
+                                <div class="days-wrapper">
+                                    <span class="days"></span> <span class="t-text">days /</span>
+                                </div>
+                                <div class="hours-wrapper">
+                                    <span class="hours"></span> <span class="t-text">hours /</span>
+                                </div>
+                                <div class="minutes-wrapper">
+                                    <span class="minutes"></span> <span class="t-text">minutes /</span>
+                                </div>
+                                <div class="seconds-wrapper">
+                                    <span class="seconds"></span> <span class="t-text">seconds</span>
+                                </div>
+                            </div>
+                            <div class="subscribe wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="3s">
+	                			<form class="form-inline" role="form" th:action="@{subscribe.php}" method="post">
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="subscribe-email">Email address</label>
+			                        	<input type="text" name="email" placeholder="输入您的邮箱..." class="subscribe-email form-control" id="subscribe-email">
+			                        </div>
+			                        <button type="submit" class="btn">Subscribe</button>
+			                    </form>
+			                    <div class="success-message"></div>
+			                    <div class="error-message"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- More info -->
+        <div class="features-container section-container">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-sm-12 features section-description wow fadeIn">
+	                    <h2>更多信息</h2>
+	                    <div class="divider-1 wow fadeInUp"><span></span></div>
+	                </div>
+	            </div>
+	            <div class="row">
+                	<div class="col-sm-3 features-box wow fadeInUp">
+	                	<div class="features-box-icon">
+	                		<span aria-hidden="true" class="icon_profile"></span>
+	                	</div>
+	                    <h3>爱在身边</h3>
+	                    <p>敬老、爱老、助老是中华民族的传统美德，让我们从身边小事做起，为老年人提供更多关爱与帮助。</p>
+                    </div>
+                    <div class="col-sm-3 features-box wow fadeInDown">
+	                	<div class="features-box-icon">
+	                		<span aria-hidden="true" class="icon_pencil"></span>
+	                	</div>
+	                    <h3>真情陪伴</h3>
+	                    <p>一份温暖的问候，一句体贴的话语，都能让老年人感受到社会的关怀和温情。让我们积极传递正能量，用爱心倾听老年人的心声。</p>
+                    </div>
+                    <div class="col-sm-3 features-box wow fadeInUp">
+	                	<div class="features-box-icon">
+	                		<span aria-hidden="true" class="icon_cogs"></span>
+	                	</div>
+	                    <h3>关心关爱</h3>
+	                    <p>给老人一份爱，回报他们一生的付出。让我们从心出发，关注老人的身心健康，陪伴老人走过余生的美好。</p>
+                    </div>
+                    <div class="col-sm-3 features-box wow fadeInDown">
+	                	<div class="features-box-icon">
+	                		<span aria-hidden="true" class="icon_pin"></span>
+	                	</div>
+	                    <h3>心手相连</h3>
+	                    <p>老人是社会的宝贵财富，让我们积极行动起来，将对老人的敬爱与关怀变成实际行动，铸就一个温馨、和谐的社会。</p>
+                    </div>
+	            </div>
+	        </div>
+        </div>
+        
+        <!-- Footer -->
+
+        
+
+        <!-- Javascript -->
+        <script th:src="@{/js/jquery-1.11.1.min.js}"></script>
+        <script th:src="@{/js/bootstrap.min.js}"></script>
+        <script th:src="@{/js/jquery.backstretch.min.js}"></script>
+        <script th:src="@{/js/jquery.countdown.min.js}"></script>
+        <script th:src="@{/js/wow.min.js}"></script>
+        <script th:src="@{/js/retina-1.1.0.min.js}"></script>
+        <script th:src="@{/js/scripts.js}"></script>
+        
+        <!--[if lt IE 10]>
+            <script th:src="@{/js/placeholder.js}"></script>
+        <![endif]-->
+
+    </body>
+
+</html>

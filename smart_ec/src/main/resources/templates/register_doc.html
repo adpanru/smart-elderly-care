@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="keywords" content="" />
+<link th:href="@{/css/font-reg.min.css}" rel="stylesheet" type="text/css" media="all">
+<link th:href="@{/css/style.reg.css}" rel="stylesheet" type="text/css" media="all"/>
+<link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+<link href="http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
+</head>
+<body>
+<div class="signupform">
+<h1>欢迎加入智慧颐养系统</h1>
+	<div class="container">
+		
+		<div class="agile_info">
+			<div class="w3l_form">
+				<div class="left_grid_info">
+					<h3>欢迎加入 !</h3>
+					<h4>智慧养老，亲善之邦.</h4>
+					<p> 智慧居家颐养为您提供专业的养护知识，我们有着专业的医生帮您管理各项身体指标.请您放心使用.</p>
+					<ul class="social_section_1info">
+						<li><a href="#" class="w3_facebook"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" class="w3_twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" class="w3_instagram"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="#" class="w3_google"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="#" class="w3_pinterest"><i class="fa fa-pinterest"></i></a></li>
+						<li><a href="#" class="w3_vimeo"><i class="fa fa-vimeo"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="w3_info">
+				<h2>智慧颐养</h2>
+				<p>您的使用，是对我们最大的支持.</p>
+						<form th:action="@{/register_doc}" method="post">
+
+							<tr th:each="emp:${docs}">
+								<td th:text="${em}"/>
+							</tr>
+
+						<div class="input-group">
+							<span><i class="fa fa-user" aria-hidden="true"></i></span>
+							<input type="text" placeholder="您的姓名" name="dName" required="">
+						</div>
+
+						<div class="form-group">
+							<label >性别</label>
+							<div class="form-check form-check-inline" >
+								<input class="form-check-input" type="radio" name="dSex"  value="男">
+								<label class="form-check-label">男</label>
+							</div>
+							<div class="form-check form-check-inline" >
+								<input class="form-check-input" type="radio" name="dSex"  value="女">
+								<label class="form-check-label">女</label>
+							</div>
+						</div>
+						<div class="input-group">
+							<span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+							<input type="text" placeholder="请输入您的住址：具体到门牌号" name="address" required="">
+						</div>
+						<div class="input-group">
+							<span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+							<input type="text" placeholder="请输入您的工作单位" name="workUnit" required="">
+						</div>
+						<div class="input-group">
+							<span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+							<input type="text" placeholder="请输入您的科室" name="workSector" required="">
+						</div>
+						<div class="input-group">
+							<span><i class="fa fa-sort-numeric-asc" aria-hidden="true"></i></span>
+							<input type="text" placeholder="请输入您的身份证号" name="personId" required="">
+						</div>
+
+							<!--<div class="input-group">
+								<span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+								<input type="email" placeholder="Email" name="email" required="">
+							</div>-->
+
+							<div class="input-group">
+								<span><i class="fa fa-phone" aria-hidden="true"></i></span>
+								<input type="text" placeholder="请输入您的电话号码" name="phone" required="">
+							</div>
+							<div class="input-group">
+								<span><i class="fa fa-sort-numeric-asc" aria-hidden="true"></i></span>
+								<input type="text" placeholder="请输入您的医师编号" name="nvqNum" required="">
+							</div>
+							<div class="input-group">
+								<span><i class="fa fa-lock" aria-hidden="true"></i></span>
+								<input type="Password" placeholder="请输入密码" name="password" required="">
+							</div>
+							<div class="input-group">
+								<span><i class="fa fa-lock" aria-hidden="true"></i></span>
+								<input type="Password" placeholder="请确认密码" required="">
+							</div>
+
+							<button class="btn btn-danger btn-block" type="submit">确认注册</button >
+					</form>
+			</div>
+			<div class="clear"></div>
+			</div>
+			
+		</div>
+	
+	</div>
+	</body>
+</html>

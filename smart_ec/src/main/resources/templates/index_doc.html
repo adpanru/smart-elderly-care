@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Google fonts - Popppins for copy-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,800">
+    <!-- orion icons-->
+    <link rel="stylesheet" th:href="@{/css/orionicons.css}">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" th:href="@{/css/style.default.css}" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" th:href="@{/css/custom.css}">
+    <!-- Favicon-->
+    <link rel="shortcut icon" th:href="@{/img/favicon.png?3}">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <!-- navbar-->
+
+    <div th:replace="~{commons/commons_doc::topbar_doc}"></div>
+
+    <div class="d-flex align-items-stretch">
+<!--      侧边栏-->
+      <div th:replace="~{commons/commons_doc::Sidebar_doc(active='index_doc.html')}"></div>
+
+
+      <div class="page-holder w-100 d-flex flex-wrap">
+
+        <div class="container-fluid px-xl-5">
+          <section class="py-5">
+            <div class="row">
+              <div class="col-lg-12 mb-4">
+                <div class="card">
+                  <div class="card-header">
+                    <h6 class="text-uppercase mb-0">Scoring information</h6>
+
+                  </div>
+                  <div class="card-body">
+                    <table class="table card-text">
+                      <div class="btn btn-sm btn-success" >您的评分情况如下</div>
+                      <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>您的电话</th>
+                        <th>您的评语</th>
+                        <th>您的评分</th>
+
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr th:each="emp1:${listrate}">
+                        <td th:text="${emp1.getId()}"></td>
+                        <td th:text="${emp1.getPhone()}"></td>
+                        <td th:text="${emp1.getRate()}"></td>
+                        <td th:text="${emp1.getScore()}"></td>
+                      </tr>
+                        <!--<td>
+                          <a class="btn btn-sm btn-primary" th:href="@{'/tables_doc/'+${emp1.getId()}}">查看</a>
+                        </td>-->
+                      </tr>
+                      </tbody>
+                    </table>
+                    <!-- 分页链接部分 -->
+                    <!-- 分页链接的更新，需要通过Ajax的方式进行异步更新 -->
+                    <!-- 显示分页链接 -->
+                    <!--<nav aria-label="Page navigation example" th:if="${totalPages != 0}">
+                      <ul class="pagination justify-content-center">
+                        <li th:class="${currentPage == 0} ? disabled : ''">
+                          <a class="page-link" th:href="@{/tables_doc/(pageNo=0,pageSize=${totalPages})}"
+                             aria-label="Previous">
+                            <span aria-hidden="true">首页</span>
+                          </a>
+                        </li>
+                        <li class="page-item" th:each="i : ${#numbers.sequence(0, totalPages - 1)}"
+                            th:class="${currentPage == i} ? active : ''">
+                          <a class="page-link" th:href="@{/tables_doc/(pageNo=${i},pageSize=${3})}"
+                             th:text="${i + 1}"></a>
+                        </li>
+                        <li th:class="${currentPage == (totalPages - 1)} ? disabled : ''">
+                          <a class="page-link" th:href="@{/tables_doc/(pageNo=${totalPages - 1},pageSize=${3})}"
+                             aria-label="Next">
+                            <span aria-hidden="true">尾页</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>-->
+
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </section>
+        </div>
+
+        <footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6 text-center text-md-left text-primary">
+                <p class="mb-2 mb-md-0"></p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- JavaScript files-->
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/popper.js/umd/popper.min.js}"> </script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/vendor/jquery.cookie/jquery.cookie.js}"> </script>
+    <script th:src="@{/vendor/chart.js/Chart.min.js}"></script>
+    <script th:src="@{/js/js.cookie.min.js}"></script>
+    <script th:src="@{/js/charts-home.js}"></script>
+    <script th:src="@{/js/front.js}"></script>
+  </body>
+</html>

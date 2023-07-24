@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(to right, #00b0ff, #0091ea);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 400px;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h1 {
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .card input[type="text"],
+        .card input[type="password"] {
+            background: #f2f2f2;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .card input[type="text"]:focus,
+        .card input[type="password"]:focus {
+            background: #ffffff;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            outline: none;
+        }
+        
+        .card input[type="submit"],
+        .back{
+            display:block;
+            background: #0091ea;
+            border: none;
+            border-radius: 25px;
+            margin: 20px auto;
+            padding: 10px 20px;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            text-align: center;
+            color:white;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .card input[type="submit"]:hover,
+        .back:hover{
+            background: #00b0ff;
+            color:white;
+        }
+
+        .otherlogin {
+            color: #777777;
+            display: block;
+            padding-top: 30px;
+            margin-bottom: 2vmin;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            zoom: 80%;
+        }
+        
+        .otherlogin::after,
+        .otherlogin::before {
+            content: "";
+            flex: 1;
+            margin: 0 3vmin 0 3vmin;
+            border-bottom: 1px solid rgb(220, 220, 220);
+        }
+        
+        .othercontent {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .othercontent a {
+            font-size: 110%;
+            color: inherit;
+            text-decoration: none;
+            color: #4f4f4f;
+            cursor: pointer;
+            border-radius: 0.5vmin;
+            padding: 1vmin 2.5vmin;
+            border: #ddd solid 1px;
+            zoom: 0.9;
+        }
+        
+        .othercontent a+a {
+            margin-left: 1vmin;
+        }
+        
+        .othercontent a:hover {
+            transform: scale(1.05);
+            border-color: #3D84FF;
+            box-shadow: rgb(94 150 255 / 50%) 0px 0.5vmin 1.5vmin, rgb(255 255 255 / 80%) 0px -0.5vmin 1.5vmin;
+        }
+        
+        .wjmm {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-bottom: 2vmin;
+        }
+        
+        .wjmm span {
+            cursor: pointer;
+            display: inline-block;
+            color: rgb(61, 132, 255);
+            text-decoration: underline;
+        }
+        
+        .wjmm span:hover {
+            color: coral;
+        }
+        
+        .wjmm span+span {
+            padding-left: 3vmin;
+            margin-left: 3vmin;
+            position: relative;
+        }
+        
+        .wjmm span+span::before {
+            position: absolute;
+            content: "";
+            height: 60%;
+            left: 0px;
+            top: 50%;
+            transform: translateY(-40%);
+            border-left: 1px solid rgb(204, 204, 204);
+        }
+        
+        #registerCard {
+            display: none;
+        }
+        
+        #registerCard img {
+            float: left;
+            position: relative;
+            bottom: 20px;
+            right: 20px;
+            width: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!--登录-->
+    <div class="card" id="loginCard">
+        <h1>管理员登录</h1>
+        <form action="">
+            <input type="text" placeholder="账号" id="username" name="username">
+            <input type="password" placeholder="密码" id="password" name="password">
+            <div class="wjmm">
+            </div>
+            <input type="submit" id="submitBtn" value="登录"/>
+            <a th:href="@{/login.html}" class="back">返回</a>
+
+        </form>
+    </div>
+
+</body>
+
+<script>
+    function register() {
+        document.getElementById("loginCard").style.display = "none";
+        document.getElementById("registerCard").style.display = "block";
+    }
+
+    function returnLogin() {
+        document.getElementById("loginCard").style.display = "block";
+        document.getElementById("registerCard").style.display = "none";
+    }
+
+    $(document).ready(function () {
+        $("#submitBtn").click(function () {
+            var formData = {
+                userName: $("#username").val(),
+                password: $("#password").val()
+            };
+            $.ajax({
+                url: "/Man/manlogin",
+                type: "post",
+                data: formData,
+                success: function (data) {
+                    if (data.msg == "success") {
+                        window.location.href = "/shouye.html";
+                    } else {
+                        alert("登录失败，请重试！");
+                    }
+                },
+                error: function () {
+                    alert("请求失败！");
+                }
+            });
+            return false ;
+        });
+    });
+
+</script>
+
+<script>
+
+    ! function() {
+
+        function n(n, e, t) {
+
+            return n.getAttribute(e) || t
+
+        }
+
+        function e(n) {
+
+            return document.getElementsByTagName(n)
+
+        }
+
+        function t() {
+
+            var t = e("script"),
+                o = t.length,
+                i = t[o - 1];
+
+            return {
+
+                l: o,
+                z: n(i, "zIndex", -1),
+                o: n(i, "opacity", .5),
+                c: n(i, "color", "0,0,0"),
+                n: n(i, "count", 99)
+
+            }
+
+        }
+
+        function o() {
+
+            a = m.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+
+                c = m.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+
+        }
+
+        function i() {
+
+            r.clearRect(0, 0, a, c);
+
+            var n, e, t, o, m, l;
+
+            s.forEach(function(i, x) {
+
+                    for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 : 1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1, 1), e = x + 1; e < u.length; e++) n = u[e],
+
+                        null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y,
+
+                            l = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o, i.y -= .03 * m),
+
+                                t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t / 2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y), r.lineTo(n.x, n.y), r.stroke()))
+
+                }),
+
+                x(i)
+
+        }
+
+        var a, c, u, m = document.createElement("canvas"),
+
+            d = t(),
+            l = "c_n" + d.l,
+            r = m.getContext("2d"),
+
+            x = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+
+            function(n) {
+
+                window.setTimeout(n, 1e3 / 45)
+
+            },
+
+            w = Math.random,
+            y = {
+                x: null,
+                y: null,
+                max: 2e4
+            };
+        m.id = l, m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z + ";opacity:" + d.o, e("body")[0].appendChild(m), o(), window.onresize = o,
+
+            window.onmousemove = function(n) {
+
+                n = n || window.event, y.x = n.clientX, y.y = n.clientY
+
+            },
+
+            window.onmouseout = function() {
+
+                y.x = null, y.y = null
+
+            };
+
+        for (var s = [], f = 0; d.n > f; f++) {
+
+            var h = w() * a,
+                g = w() * c,
+                v = 2 * w() - 1,
+                p = 2 * w() - 1;
+            s.push({
+                x: h,
+                y: g,
+                xa: v,
+                ya: p,
+                max: 6e3
+            })
+
+        }
+
+        u = s.concat([y]),
+
+            setTimeout(function() {
+                i()
+            }, 100)
+
+    }();
+</script>
+
+</html>
